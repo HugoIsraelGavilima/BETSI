@@ -12,7 +12,7 @@ class betsi():
         self.video_capture = cv2.VideoCapture(self.type_)
         self.thickness = 2
         self.score_threshold = 0.5
-        self.classes = dt.paths_().get_json("utils\config_plot.json")["clases"]
+        self.classes = dt.paths_().get_json(r"utils\config_plot.json")["clases"]
         self.colors = np.random.uniform(0, 255, size=(len(self.classes), 3))
         
         self.model = cv2.dnn.readNetFromCaffe(
