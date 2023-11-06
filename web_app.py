@@ -33,7 +33,7 @@ cache_key = "betsi"
 if cache_key in st.session_state:
     betsi_ = st.session_state[cache_key]
 else:
-    betsi_ = betsi(name_ip=None)
+    betsi_ = betsi()
     st.session_state[cache_key] = betsi_
 
 
