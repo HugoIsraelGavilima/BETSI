@@ -16,8 +16,8 @@ class betsi():
         self.colors = np.random.uniform(0, 255, size=(len(self.classes), 3))
         
         self.model = cv2.dnn.readNetFromCaffe(
-            "./betsi/model/MobileNetSSD_deploy.prototxt.txt",
-            "./betsi/model/MobileNetSSD_deploy.caffemodel"
+            "./betsi/model/betsi.prototxt.txt",
+            "./betsi/model/betsi.caffemodel"
             )
     def make_predicition(self, image):
         blob = cv2.dnn.blobFromImage(
