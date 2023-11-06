@@ -73,4 +73,4 @@ ctx = webrtc_streamer(
 
 
 if ctx.video_transformer:
-    ctx.video_transformer.score_threshold = st.slider("Threshold1", 0, 10, 0.01)
+    ctx.video_transformer.score_threshold = st.slider("Threshold1", 0.0, 10.0, 0.01)
