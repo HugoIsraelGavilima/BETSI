@@ -40,6 +40,7 @@ else:
 webrtc_ctx = webrtc_streamer(
     key="object-detection",
     mode=WebRtcMode.SENDRECV,
+     rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
     video_frame_callback=betsi_.video_frame_callback,
     media_stream_constraints={"video": True, "audio": False},
     async_processing=True,
