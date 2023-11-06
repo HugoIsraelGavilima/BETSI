@@ -29,48 +29,18 @@ if option == utils_["lts"][1]:
 #Definimos los paramaetros del video a presentar
 fps = 10
 
-# cache_key = "betsi"
-# if cache_key in st.session_state:
-#     betsi_ = st.session_state[cache_key]
-# else:
-#     betsi_ = betsi(name_ip=None)
-#     st.session_state[cache_key] = betsi_
+cache_key = "betsi"
+if cache_key in st.session_state:
+    betsi_ = st.session_state[cache_key]
+else:
+    betsi_ = betsi(name_ip=None)
+    st.session_state[cache_key] = betsi_
 
 
-# video_source_track = create_video_source_track(
-#     betsi(name_ip=None).get_image, key="video_source_track", fps=fps
-# )
-
-# video_source_track = create_video_source_track(
-#     betsi_.get_image, key="video_source_track", fps=fps
-# )
-
-
-# def on_change():
-#     ctx = st.session_state["player"]
-#     stopped = not ctx.state.playing and not ctx.state.signalling
-    
-#     # if paused: 
-#     #     st.text("Se pausó el video")
-#     if stopped:
-#         video_source_track.stop()  # Manually stop the track.
-
-
-ctx = webrtc_streamer(
-    key="example", 
-    mode=WebRtcMode.RECVONLY,
-    video_transformer_factory=betsi
+webrtc_ctx = webrtc_streamer(
+    key="object-detection",
+    mode=WebRtcMode.SENDRECV,
+    video_frame_callback=betsi_.video_frame_callback,
+    media_stream_constraints={"video": True, "audio": False},
+    async_processing=True,
 )
-
- 
-# webrtc_streamer(
-#     key="player",
-#     mode=WebRtcMode.RECVONLY,
-#     source_video_track=video_source_track,
-#     media_stream_constraints={"video": True, "audio": False},
-#     on_change=on_change,
-# )
-
-
-if ctx.video_transformer:
-    ctx.video_transformer.score_threshold = st.slider("Threshold1", 0.0, 10.0, 0.01)

@@ -29,21 +29,8 @@ class betsi(VideoTransformerBase):
         
         return output[output[:, 2] >= self.score_threshold]        
     
-    def transform(self, frame): 
+    def video_frame_callback(self, frame: av.VideoFrame)-> av.VideoFrame:
         
-        # if ret is False:
-        #     frame = np.zeros((480, 640, 3), dtype=np.uint8)
-        #     frame = cv2.putText(
-        #             frame,
-        #             text = "No se registra video.",
-        #             org = (0, 32),
-        #             fontFace = cv2.FONT_HERSHEY_SIMPLEX,
-        #             fontScale = 1.0,
-        #             color = (255, 255, 0),
-        #             thickness = self.thickness,
-        #             lineType = cv2.LINE_4,
-        #        ) 
-        # else:
         altura, ancho = frame.shape[:2]
         output = self.make_predicition(frame)
         detections = [
