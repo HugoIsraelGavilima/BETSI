@@ -8,9 +8,7 @@ from streamlit_webrtc import VideoTransformerBase
 
 
 class betsi(VideoTransformerBase):
-    def __init__(self, name_ip) -> None:
-        self.type_ = 0 if name_ip is None else name_ip
-        self.video_capture = cv2.VideoCapture(self.type_)
+    def __init__(self) -> None:
         self.thickness = 2
         self.score_threshold = 0.5
         self.classes = dt.paths_().get_json("utils/config_plot.json")["clases"]
