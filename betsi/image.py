@@ -4,10 +4,9 @@ import cv2
 import av
 from typing import List, NamedTuple
 import utils.data_utils as dt
-from streamlit_webrtc import VideoTransformerBase
 
 
-class betsi(VideoTransformerBase):
+class betsi():
     def __init__(self) -> None:
         self.thickness = 2
         self.score_threshold = 0.5
@@ -30,7 +29,6 @@ class betsi(VideoTransformerBase):
         return output[output[:, 2] >= self.score_threshold]        
     
     def video_frame_callback(self, frame: av.VideoFrame)-> av.VideoFrame:
-        
         altura, ancho = frame.shape[:2]
         output = self.make_predicition(frame)
         detections = [
