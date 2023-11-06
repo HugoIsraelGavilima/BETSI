@@ -9,7 +9,7 @@ from streamlit_webrtc import WebRtcMode, create_video_source_track, webrtc_strea
  
 #----------------------------------------------------------------------------------------
 #Definimos la apliacion
-utils_ = dt.paths_().get_json("utils\web.json")
+utils_ = dt.paths_().get_json("utils/web.json")
 # Título de la página
 st.write("# BETSI")
 st.write("### Conteo de Objetos en Entornos Complejos de Alta Densidad")
