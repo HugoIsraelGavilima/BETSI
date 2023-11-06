@@ -1,5 +1,4 @@
 import streamlit as st
-import matplotlib.pyplot as plt
 from utils import data_utils as dt
 from betsi.image import betsi
 from streamlit_webrtc import WebRtcMode, create_video_source_track, webrtc_streamer
