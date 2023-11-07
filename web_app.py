@@ -9,6 +9,10 @@ from streamlit_webrtc import WebRtcMode, create_video_source_track, webrtc_strea
 
 
 # C:\Users\hugo.gavilima\OneDrive - Universidad de Las Américas\Documentos\TAREAS\BETSI\
+# python -m venv mi_entorno_virtual
+# mi_entorno_virtual\Scripts\activate
+# pip install streamlit typing opencv-python av typing Fraction streamlit_webrtc matplotlib
+# streamlit run web_app.py
 # streamlit run web_app.py --theme.base dark
  
 #----------------------------------------------------------------------------------------
