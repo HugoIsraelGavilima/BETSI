@@ -1,3 +1,5 @@
+import urllib
+import pickle
 import json 
 import pathlib
 import os
@@ -14,8 +16,17 @@ class paths_():
             file = json.load(file)
         return file
     
+    def set_pickle(self, path, file):
+        path = self.get_folder(path)
+        with open(path, "wb") as archivo:
+            pickle.dump(file, archivo)
+            
+    def get_pickle(self, path):
+        path = self.get_folder(path)
+        with open(path, "rb") as archivo:
+            file = pickle.load(archivo)
+        return file
+    
     def get_folder(self, folder):
         return os.path.join(self.project, folder)
-    
-        
 #----------------------------------------------------------------------------------------------
